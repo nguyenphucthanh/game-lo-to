@@ -220,10 +220,7 @@
 
 .drawn-numbers {
   display: grid;
-  grid-template-columns: repeat(
-    auto-fill,
-    minmax(clamp(50px, 12vw, 70px), 1fr)
-  );
+  grid-template-columns: repeat(10, 1fr);
   gap: clamp(0.5rem, 2vw, 1rem);
   padding: clamp(0.5rem, 2vw, 1rem);
 }
@@ -237,9 +234,18 @@
   color: #ffd700;
   font-size: clamp(1.1rem, 3vw, 1.5rem);
   font-weight: bold;
-  border-radius: 10px;
+  border-radius: 50%;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
   border: 2px solid #ffd700;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.drawn-number.undrawn {
+  opacity: 0.3;
+}
+
+.drawn-number.drawn {
+  opacity: 1;
   animation: fadeIn 0.5s ease-out;
 }
 
@@ -295,6 +301,10 @@
     padding: 1.5rem;
   }
 
+  .drawn-numbers {
+    grid-template-columns: repeat(8, 1fr);
+  }
+
   .reset-container {
     padding-bottom: 1.5rem;
   }
@@ -330,6 +340,10 @@
     border-radius: 15px;
   }
 
+  .drawn-numbers {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
   .reset-container {
     padding-bottom: 1rem;
   }
@@ -352,6 +366,11 @@
 
   .drawn-numbers-container {
     padding: 1rem;
+  }
+
+  .drawn-numbers {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.4rem;
   }
 
   .reset-container {

@@ -169,8 +169,13 @@ function App() {
       <div className="drawn-numbers-container">
         <h2>Các số đã gọi</h2>
         <div className="drawn-numbers">
-          {drawnNumbers.map((num) => (
-            <div key={num} className="drawn-number">
+          {Array.from({ length: 90 }, (_, i) => i + 1).map((num) => (
+            <div
+              key={num}
+              className={`drawn-number ${
+                drawnNumbers.includes(num) ? "drawn" : "undrawn"
+              }`}
+            >
               {num}
             </div>
           ))}
