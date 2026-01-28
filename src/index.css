@@ -1,68 +1,83 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@import "tailwindcss";
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@theme {
+  --color-crimson: #dc143c;
+  --color-dark-red: #8b0000;
+  --color-gold: #ffd700;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
+@layer base {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
-  a:hover {
-    color: #747bff;
+
+  body {
+    @apply m-0 min-w-[320px] min-h-screen;
   }
-  button {
-    background-color: #f9f9f9;
+}
+
+@layer utilities {
+  .text-shadow-title {
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 215, 0, 0.3);
+  }
+
+  .text-shadow-number {
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 215, 0, 0.5);
+  }
+
+  .text-shadow-subtitle {
+    text-shadow: 1px 1px 2px rgba(255, 215, 0, 0.3);
+  }
+
+  .box-shadow-container {
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3), 0 0 60px rgba(255, 215, 0, 0.2);
+  }
+
+  .box-shadow-button {
+    box-shadow: 0 4px 15px rgba(220, 20, 60, 0.5);
+  }
+
+  .box-shadow-button-gold {
+    box-shadow: 0 4px 20px rgba(255, 215, 0, 0.6);
+  }
+
+  .box-shadow-button-hover {
+    box-shadow: 0 6px 25px rgba(220, 20, 60, 0.7), 0 0 30px rgba(255, 215, 0, 0.4);
+  }
+
+  .box-shadow-ball {
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+  }
+
+  .animation-pop-in {
+    animation: popIn 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  @keyframes popIn {
+    0% {
+      transform: scale(0);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out;
   }
 }

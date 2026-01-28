@@ -335,23 +335,12 @@ const BingoCage = ({ isSpinning, onCollision }: BingoCageProps) => {
   }, [isSpinning]);
 
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        aspectRatio: "1 / 1",
-        width: "100%",
-      }}
-    >
+    <div className="flex justify-center items-center aspect-square w-full">
       <canvas
         ref={canvasRef}
         width={600}
         height={600}
-        style={{
-          width: "100%",
-          height: "100%",
-        }}
+        className="w-full h-full"
       />
     </div>
   );
